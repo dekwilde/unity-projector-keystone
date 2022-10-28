@@ -32,6 +32,7 @@ internal class VideoQuad
         _max_zoom = max_zoom;
         _plane_origin = _camera.farClipPlane * 0.25f;
         CreateQuad();
+        
     }
 
     public void CreateQuad()
@@ -49,6 +50,11 @@ internal class VideoQuad
         _mesh_filter = _quad.GetComponent<MeshFilter>();
         _mesh_filter.mesh.MarkDynamic();
         FitQuadToScreen();
+        
+    }
+
+    public void SetupRenderTexture(RenderTexture r) {
+        _quad.GetComponent<MeshRenderer>().material.mainTexture = r;
     }
 
     public void SetupNDI(NdiResources _resources)

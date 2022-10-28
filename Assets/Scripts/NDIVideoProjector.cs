@@ -11,7 +11,8 @@ public class NDIVideoProjector : MonoBehaviour
     [SerializeField] [Range(0, 90)] float _maxPan;
     [SerializeField] [Range(0, 5)] float _maxZoom;
     [SerializeField] [Range(0, 10)] float _sensitivity;
-    private Camera _camera;
+    public RenderTexture renderTexture;
+    public  Camera _camera;
     private VideoQuad _renderQuad;
     private Vector2 _axis = Vector2.zero;
     private Vector2 _axis_lerped = Vector2.zero;
@@ -23,10 +24,11 @@ public class NDIVideoProjector : MonoBehaviour
     private float _zoom_accumulated = 0;
     private void Awake()
     {
-        _camera = GameObject.FindObjectOfType<Camera>();
+        //_camera = GameObject.FindObjectOfType<Camera>();
         _renderQuad = new VideoQuad(this, _camera, _maxTilt, _maxPan, _maxZoom);
         Application.targetFrameRate = 60;
-        _renderQuad.SetupNDI(_resources);
+        //_renderQuad.SetupNDI(_resources); //change this if you want NDI
+        _renderQuad.SetupRenderTexture(renderTexture);
     }
 
     private void Start()

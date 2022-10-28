@@ -1,7 +1,8 @@
 # Reprojector
-A unity projection mapping warper for real-time video key-stoning. Used for live projection mapping advertising in New York.
+A unity projection mapping warper for real-time video key-stoning. 
 
-The application searches for NDI output from Resolume and allows some realtime "keystoning" via Xbox controller or keyboard.
+
+The application searches for NDI output from Resolume or Can use a RenderTexture from a camera and allows some realtime "keystoning" via Xbox controller or keyboard.
 
 
 **Keyboard controls:** 
